@@ -119,3 +119,6 @@ var typed = new Typed("#typed", {
 	stringsElement: "#typed-strings",
 	loop: true,
 });
+
+let home = document.getElementById("home");
+home.innerText = `${innerWidth + " " + innerHeight}`;
