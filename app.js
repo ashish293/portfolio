@@ -120,5 +120,5 @@ var typed = new Typed("#typed", {
 	loop: true,
 });
 
-let home = document.getElementById("home");
+let home = document.getElementById("screen-size");
 home.innerText = `${innerWidth + " " + innerHeight}`;

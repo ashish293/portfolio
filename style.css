@@ -3,9 +3,43 @@
 	margin: 0;
 	/* overflow: hidden; */
 }
+:root {
+	--primary: rgb(9, 132, 227);
+	--background-color: rgba(116, 186, 255, 0.102);
+}
 body {
 	font-family: "Lato", sans-serif;
 }
+
+/* Scrollbar */
+html::-webkit-scrollbar {
+	width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+	background: rgb(179, 177, 177);
+	background: var(--background-color);
+	border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: rgb(136, 136, 136);
+	/* background: var(--light); */
+	border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+	background: rgb(100, 100, 100);
+	/* background: var(--dark); */
+	border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:active {
+	background: rgb(68, 68, 68);
+	/* background: var(--darker); */
+	border-radius: 10px;
+}
+
 #particles-js {
 	width: 100%;
 	height: 100vh;
@@ -25,11 +59,17 @@ body {
 }
 nav {
 	display: flex;
+	position: fixed;
 	justify-content: flex-end;
 	padding: 10px;
+	background-color: rgba(247, 247, 247, 0.6);
+	/* background-color: var(--background-color); */
+	z-index: 2;
+	width: 100%;
 }
 nav > a {
 	color: #222f3e;
+	/* color: var(--primary); */
 	text-decoration: none;
 	margin-right: 20px;
 	font-size: 1.7rem;
@@ -39,6 +79,8 @@ nav > a {
 	display: flex;
 	flex: 1;
 	justify-content: space-between;
+	padding-top: 50px;
+	box-sizing: border-box;
 }
 .container > .left,
 .container > .right {
@@ -47,11 +89,13 @@ nav > a {
 .container > .left {
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 }
 .left > img {
 	position: relative;
-	height: 80vh;
+	object-fit: contain;
+	max-height: 80vh;
+	max-width: 50vw;
 	animation-name: moveUp;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
@@ -61,7 +105,7 @@ nav > a {
 		bottom: -400px;
 	}
 	to {
-		bottom: 50px;
+		bottom: 0;
 	}
 }
 .right-container {
@@ -98,6 +142,18 @@ nav > a {
 	padding-bottom: 10px;
 }
 
+.cont {
+	display: flex;
+}
+.cont > .about-left,
+.cont > .about-right {
+	flex: 1;
+}
+.about-left > img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
 @media only screen and (max-width: 1200px) {
 	@keyframes moveLeft {
 		from {
@@ -116,6 +172,7 @@ nav > a {
 @media only screen and (width: 980px) and (min-height: 1800px) {
 	.container {
 		flex-direction: column-reverse;
+		padding-top: 100px;
 	}
 	.container > .left,
 	.container > .right {
@@ -183,6 +240,7 @@ nav > a {
 	.right {
 		justify-content: center;
 	}
+
 	@keyframes moveLeft {
 		from {
 			left: 500px;
@@ -191,9 +249,20 @@ nav > a {
 			left: 6%;
 		}
 	}
+	@keyframes moveUp {
+		from {
+			bottom: -400px;
+		}
+		to {
+			bottom: 50px;
+		}
+	}
 	.left > img {
 		height: 50vh;
 		padding-bottom: 30px;
+		max-width: 100%;
+		max-height: auto;
+		width: auto;
 	}
 	nav > a {
 		font-size: 1.1rem;
